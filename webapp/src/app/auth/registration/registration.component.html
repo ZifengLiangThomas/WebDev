@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<title>Registration</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Thomas Liang (zl34)">
+	</head>
+	<body>
+		<form action="formProcessor.html" method="get" onsubmit="return checkInput()" >
+			Account name <br>
+			<input (ngModel)="RegistrationModel.accountName" type = "text" name = "account_name" pattern = "^[a-zA-Z][a-zA-Z0-9]*$"
+			oninput="setCustomValidity('')"
+			oninvalid="setCustomValidity('Account name can only be upper or lower case letters and numbers, but may not start with a number')"
+			required><br>
+		  Display name <br>
+			<input type = "text" name = "display_name" ><br>
+		  Email address <br>
+			<input type = "email" name = "email" pattern ="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required><br>
+			Phone number <br>
+			<input type = "tel" name = "phone_number" pattern="^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$"
+			oninput="setCustomValidity('')" 
+			oninvalid="setCustomValidity('Phone number must be 10 digits ')" maxlength="12" required><br>
+			Date of Birth <br>
+			<input type = "date" name = "date_of_birth" id = "date_of_birth" required> <br>
+			Zipcode <br>
+			<input type = "text" name = "zipcode"  pattern="^[0-9]{5}$"
+			oninput="setCustomValidity('')"
+			oninvalid="setCustomValidity('Zipcode must be 5 numbers ')" required> <br>
+			Password <br>
+			<input type="password" name = "password" id = "password" value="" required> <br>
+			Password confirmation <br>
+			<input type="password" name = "password_confirmation"
+			id = "password_confirmation" value="" required> <br>
+			<input type="submit" value = "Submit form" >
+			<input type="reset" value = "Clear">
+			<input type="hidden" name="timeStamp" id= "loadTime"/>
+		</form>
+
+		<script>
+			function checkInput(){
+				var pw1 = document.getElementById("password").value;
+				var pw2 = document.getElementById("password_confirmation").value;
+
+				if (pw1 != pw2) {
+				 	window.alert("You passwords don't match");
+				 	return false;
+				}
+				var date = document.getElementById("date_of_birth");
+				if (getAge(date) < 18) {
+					window.alert("You must be 18 or older in order to register");
+					return false;
+				}
+				return true;
+			}
+
+			function getAge(date) {
+				var today = new Date();
+				var birthDate = new Date(date.value);
+	 			var age = today.getFullYear() - birthDate.getFullYear();
+	 			var m = today.getMonth() - birthDate.getMonth();
+	 			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+	 			{
+			 		age--;
+	 			}
+	 			return age;
+			}
+			function setTimeStamp() {
+				document.getElementById("loadTime").value = Date.now();
+			}
+		</script>
+
+	</body>
+
+</html>
