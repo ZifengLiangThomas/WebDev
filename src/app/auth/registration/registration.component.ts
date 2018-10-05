@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "../../app.model"
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Registration } from "../../app.model"
+import { passValidator} from './customValidators'
+import { FormBuilder, AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -9,12 +14,35 @@ import { User } from "../../app.model"
 
 export class RegistrationComponent implements OnInit {
   title = 'registration';
-  RegistrationModel: User = new User();
-  constructor() {
-    console.log("constructor");
+  registrationForm:FormGroup;
+  myRouter : Router;
+  onSubmit() { 
+    if (!this.registrationForm.valid) {
+        alert("One of the information is missing or incorrect");
+    }
+    else{
+      this.myRouter.navigate(['/main', this.registrationForm]);
+    }
    }
+  
+  constructor(fb: FormBuilder, router: Router){
+     this.myRouter = router;
+    this.registrationForm =  fb.group({
+      'accountName': [null, [Validators.required, Validators.pattern("^[a-zA-Z][a-zA-Z0-9]*$")]],
+      'email': [null, [Validators.required, Validators.email]],
+      'phoneNumber' : [null, [Validators.required, Validators.pattern("^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$")]],
+      'dateOfBirth' :[null, [Validators.required]],
+      'zipcode' :[null, [Validators.required, Validators.pattern("^[0-9]{5}$")]],
+      'pw1': [null, Validators.required],
+      'pw2': [null, [passValidator, Validators.required]]
+    });
+  }
   ngOnInit() {
-    console.log("registration page");
   }
 
 }
+
+
+
+
+

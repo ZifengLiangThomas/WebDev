@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Thomas Liang (zl34)">
+	</head>
+     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class = "authForm">
+      <div class="form-group">
+      Account name<br>
+			<input class="form-control" type = "text" formControlName="accountName"><br>
+      </div> 
+      <div class="form-group">
+        	Password <br>
+			<input type="password" value="" formControlName="password"> <br>
+    </div>  
+            <input type="submit" value = "login" class="btn">
+     </form>
+
+</html>
