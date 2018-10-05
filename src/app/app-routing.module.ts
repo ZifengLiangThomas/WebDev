@@ -9,6 +9,7 @@ import { RouterModule, Routes} from '@angular/router';
 export const routes: Routes = 
 [{path: 'regis', component: RegistrationComponent},
 {path: 'main', component: MainComponent},
+{path: 'main/:accountName', component: MainComponent},
 {path: 'auth', component: AuthComponent},
 {path: 'login', component: LoginComponent},
 {path: 'profile', component: ProfileComponent},

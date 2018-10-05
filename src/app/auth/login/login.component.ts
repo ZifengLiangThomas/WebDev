@@ -12,17 +12,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   title = 'login';
   loginForm:FormGroup;
-  myRouter : Router;
   onSubmit() { 
     if (!this.loginForm.valid) {
         alert("Please enter your account name and password");
     }
     else{
-      this.myRouter.navigate(['/main', this.loginForm]);
+      this.router.navigate(['/main', this.loginForm.get('accountName').value]);
     }
    }
-  constructor(fb: FormBuilder, router: Router) {
-    this.myRouter = router;
+  constructor(fb: FormBuilder, private router: Router) {
     this.loginForm =  fb.group({
          'accountName': [null, [Validators.required]],
          'password': [null, [Validators.required]]

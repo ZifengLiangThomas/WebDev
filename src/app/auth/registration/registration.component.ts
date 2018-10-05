@@ -15,20 +15,20 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   title = 'registration';
   registrationForm:FormGroup;
-  myRouter : Router;
   onSubmit() { 
     if (!this.registrationForm.valid) {
         alert("One of the information is missing or incorrect");
     }
     else{
-      this.myRouter.navigate(['/main', this.registrationForm]);
+      alert("You can log in now!");
+      this.registrationForm.reset();
     }
    }
   
-  constructor(fb: FormBuilder, router: Router){
-     this.myRouter = router;
+  constructor(fb: FormBuilder, private router: Router){
     this.registrationForm =  fb.group({
       'accountName': [null, [Validators.required, Validators.pattern("^[a-zA-Z][a-zA-Z0-9]*$")]],
+      'displayName': [null],
       'email': [null, [Validators.required, Validators.email]],
       'phoneNumber' : [null, [Validators.required, Validators.pattern("^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$")]],
       'dateOfBirth' :[null, [Validators.required]],

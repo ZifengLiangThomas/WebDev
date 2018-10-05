@@ -13,7 +13,7 @@
       <div class="alert" *ngIf="!registrationForm.controls['accountName'].valid && registrationForm.controls['accountName'].touched">Acccount name must begin with a letter</div>
       <div class="form-group">
         Display name <br>
-			<input type = "text"><br>
+			<input type = "text" formControlName="displayName"><br>
         </div> 
       <div class="form-group">
          Email address <br>
