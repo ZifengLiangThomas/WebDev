@@ -13,8 +13,16 @@
     <nav>
       <a routerLink = "/profile" routerLinkActive = "profile"> Profile </a>
     </nav>
-    <!-- <img src="assets/Images/avatar.png" alt="">
-    <img src="https://picsum.photos/300/300/?image=5"> -->
+    <img src="assets/Images/avatar.png" alt="">
+    <div> <span> {{accountName}}</span>
+    <br>
+    <span>{{status}} <br></span>
+    <input type="text" id = "newStatus"> 
+    <button class = "btn" (click) = "onUpdate()">Update</button>
+    </div> 
+  </div>
+  <div class = "friends" id ="myFriends">
+      
   </div>
 </body>
 </html>
