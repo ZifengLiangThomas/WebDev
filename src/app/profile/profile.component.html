@@ -1,3 +1,48 @@
-<p>
-  profile works!
-</p>
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<title>Profile</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Thomas Liang (zl34)">
+	</head>
+  <body>
+      <nav>
+          <a routerLink = "/main" routerLinkActive = "active"> Main Page</a>
+      </nav>
+      <div class = "profileIcon">
+      <img id ="icon" src="assets/Images/avatar.png" alt="">
+      <input type="file" id = "newImage" accept=".gif,.jpg,.jpeg,.png"  name = "chooseFile">
+      </div> 
+      <div class = "profileInfo">
+          <span> {{accountName}}</span>
+          <br>
+          <span> {{email}} <br></span>
+          <br>
+          <span> {{phone}} <br></span>
+          <br>
+          <span> {{zipcode}} <br></span>
+      </div>
+      <div class ="updateProfile">
+        Name 
+        <br>
+        <input type="text" id = "newName">
+        <br>
+        Email 
+        <br>
+        <input type="text" id = "newEmail">
+        <br>
+        zipcode
+        <br>
+        <input type="text" id = "newZipcode">
+        <br>
+        Phone
+        <br>
+        <input type="text" id = "newPhone">
+        <br>
+        Password
+        <br>
+        <input type="text" id = "newPassword">
+        <button (click) = "onUpdate()">Update</button>
+      </div>
+  </body>
+</html>

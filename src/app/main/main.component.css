@@ -1,0 +1,29 @@
+.left {
+    min-width: 50%;
+    display:block;
+    float:left;
+}
+
+.right {
+    display:block;
+    float:left;
+    min-width: 50%;
+}
+
+.miniProfile {
+    background: yellow
+}
+.friends {
+    background: orange
+}
+.newPost {
+    background: blue
+}
+
+.posts {
+    background: green
+}
+
+/* .post {
+    background:yellow
+} */

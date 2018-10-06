@@ -6,6 +6,7 @@
 		<meta name="author" content="Thomas Liang (zl34)">
 	</head>
   <body>
+  <div class = "left">
 	<div class = "miniProfile">
     <nav>
       <a routerLink = "/auth" routerLinkActive = "active"> Log out </a>
@@ -21,8 +22,24 @@
     <button class = "btn" (click) = "onUpdate()">Update</button>
     </div> 
   </div>
-  <div class = "friends" id ="myFriends">
-      
+  <div class = "friends" id ="myFriends"> 
+  </div>
+</div>
+  <div class= "right">
+    <div class = "newPost">
+      <input type="file" accept=".gif,.jpg,.jpeg,.png" name = "chooseFile">
+      <textarea id="newPost" cols="40" rows="10"></textarea>
+      <div>
+        <button class = "btn">Submit</button>
+        <button class = "btn">Cancel</button>
+      </div>  
+    </div>
+    <div class = "search" id ="searchBar`">
+        <input type="text" placeholder="Search.." id= "filter" (keyup)= "filterPost()">
+    </div>
+    <div class = "posts" id = "postDiv">
+
+    </div>
   </div>
 </body>
 </html>

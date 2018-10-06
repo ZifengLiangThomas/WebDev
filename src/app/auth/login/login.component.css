@@ -1,0 +1,26 @@
+.authForm {
+    position: relative;
+    left:20%;  
+    width: 400px;
+    height: 500px;
+    margin:0 auto;
+    background-color: black;
+    color:white;
+    border:1px solid #ededed;
+    border-radius:7px;
+    padding: 5px;
+    opacity: 0.9;
+}
+
+.form-group {
+    position: relative;
+    margin:0 auto;
+    left:30%;  
+}
+
+.btn {
+    position: relative;
+    margin:0 auto;
+    left:30%;  
+}
+

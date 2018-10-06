@@ -1,7 +1,0 @@
-{
-	"followers": [
-	    {"name": "John Doe", "avatar": "assets/Images/avatar.png", "status": "I'm John"},
-	    {"name": "Jane Doe", "avatar": "assets/Images/avatar.png", "status": "I'm Jane"},
-	    {"name": "Joey Doe", "avatar": "assets/Images/avatar.png", "status": "I'm Joey"}
-	]
-}
